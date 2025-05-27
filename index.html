@@ -47,17 +47,19 @@
             border-color: #a99887;
         }
         .nav-cta-button {
-            background-color: #221c15; /* Taki sam kolor jak przycisk "Zobacz Prezentację" */
+            background-color: #221c15;
             color: #fbfaf8;
-            padding: 8px 18px;
+            padding: 10px 20px; /* Zwiększony padding dla lepszego wyglądu */
             border-radius: 4px;
             font-size: 0.9rem;
             font-weight: 600;
             letter-spacing: 0.05em;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Dodany cień jak w hero-cta-button */
         }
         .nav-cta-button:hover {
             background-color: #3d352e;
+            transform: translateY(-2px); /* Dodany efekt unoszenia */
         }
 
         /* Sekcja Hero */
