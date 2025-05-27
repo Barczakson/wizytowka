@@ -6,21 +6,21 @@ import { SectionTitle } from './SectionTitle'; // Updated import
 
 const servicesData = [
   {
-    iconSrc: "img/icon_service_content_ai.svg",
+    iconSrc: "img/icon_service_content_ai.jpeg",
     iconAlt: "Ikona Content Marketing",
     title: "Content Marketing & Copywriting AI",
     description: "Tworzenie wartościowych, angażujących treści (artykuły, e-booki, scenariusze) zoptymalizowanych pod SEO i wspieranych przez inteligentne narzędzia AI. Skuteczny copywriting, który sprzedaje.",
     animationDelay: "0.1" // Delay for ServiceCard
   },
   {
-    iconSrc: "img/icon_service_seo_audits.svg",
+    iconSrc: "img/icon_service_seo_audits.jpeg",
     iconAlt: "Ikona SEO",
     title: "Strategiczne SEO i Audyty",
     description: "Kompleksowa optymalizacja on-page i off-page, audyty techniczne SEO, dogłębna analiza słów kluczowych i budowanie autorytetu Twojej strony w wyszukiwarkach.",
     animationDelay: "0.2"
   },
   {
-    iconSrc: "img/icon_service_ppc_ads.svg",
+    iconSrc: "img/icon_service_ppc_ads.jpeg",
     iconAlt: "Ikona PPC",
     title: "Kampanie PPC (Google & Meta Ads)",
     description: "Projektowanie i zarządzanie wysoce efektywnymi kampaniami płatnymi. Precyzyjne targetowanie, optymalizacja budżetów i kreacji reklamowych dla maksymalizacji konwersji.",

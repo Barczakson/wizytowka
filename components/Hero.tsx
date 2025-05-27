@@ -49,6 +49,9 @@ const animationVisibleClasses = "group-[.is-visible]:opacity-100 group-[.is-visi
 export const Hero: React.FC = () => {
   return (
     <header className="relative text-white py-28 md:py-48 overflow-hidden">
+      {/* Background image layer - behind everything */}
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat -z-10" style={{ backgroundImage: "url('/img/fixed_background_main.jpg')" }}></div>
+      {/* Gradient overlay - on top of background image */}
       <div className="absolute inset-0 bg-gradient-to-br from-[rgba(59,130,246,0.85)] via-[rgba(30,58,138,0.85)] to-[rgba(17,24,39,0.9)] z-0"></div>
       <HeroParticles />
       <div className="container mx-auto px-6 text-center relative z-[2]">
@@ -64,9 +67,9 @@ export const Hero: React.FC = () => {
         </AnimateOnScroll>
         <AnimateOnScroll className="group" delay="0.4">
           <div className={`${animationBaseClasses} ${animationVisibleClasses}`}>
-            <a 
-              href="https://biznes-wzrost-prezent.vercel.app/" 
-              target="_blank" 
+            <a
+              href="https://biznes-wzrost-prezent.vercel.app/"
+              target="_blank"
               rel="noopener noreferrer"
               className="bg-white text-blue-700 font-bold px-12 py-4 rounded-lg text-lg transition-all duration-300 ease-in-out hover:bg-gray-100 hover:translate-y-[-3px] hover:shadow-[0_10px_20px_rgba(37,99,235,0.25)] shadow-2xl"
             >
