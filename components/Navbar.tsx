@@ -14,21 +14,6 @@ const NavLink: React.FC<NavLinkProps> = ({ href, children, onClick, isButton = f
       <a
         href={href}
         onClick={onClick}
-        className={`bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-300 ease-in-out hover:bg-blue-700 hover:translate-y-[-3px] hover:shadow-[0_10px_20px_rgba(37,99,235,0.25)] ${className}`}
-      >
-        {children}
-      </a>
-    );
-  }
-
-  // Determine if the link should have block styling (typically for mobile menu)
-  const isBlockStyle = className.includes("block");
-
-  if (isButton) {
-    return (
-      <a
-        href={href}
-        onClick={onClick}
         className={`nav-cta-button ${className}`}
       >
         {children}
