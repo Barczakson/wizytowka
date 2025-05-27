@@ -24,21 +24,25 @@ const NavLink: React.FC<NavLinkProps> = ({ href, children, onClick, isButton = f
   // Determine if the link should have block styling (typically for mobile menu)
   const isBlockStyle = className.includes("block");
 
+  if (isButton) {
+    return (
+      <a
+        href={href}
+        onClick={onClick}
+        className={`nav-cta-button ${className}`}
+      >
+        {children}
+      </a>
+    );
+  }
+
   return (
     <a
       href={href}
       onClick={onClick}
-      className={`group text-gray-700 font-semibold relative transition-colors duration-300 ease-in-out hover:text-blue-700 hover:translate-y-[-2px] ${isBlockStyle ? "" : "pb-2"} ${className}`}
+      className={`nav-link ${className}`}
     >
       {children}
-      <span 
-        className={`absolute h-[2.5px] bg-blue-600 transition-all duration-400 ease-[cubic-bezier(0.25,0.8,0.25,1)]
-          ${isBlockStyle 
-            ? "bottom-0 left-6 right-6 origin-left scale-x-0 group-hover:scale-x-100" 
-            : "bottom-0 left-1/2 -translate-x-1/2 w-0 group-hover:w-full"
-          }`
-        }
-      ></span>
     </a>
   );
 };
@@ -55,10 +59,10 @@ export const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="bg-white/90 backdrop-blur-md shadow-lg sticky top-0 z-50">
+    <nav className="sticky top-0 z-50">
       <div className="container mx-auto px-6 py-3 flex justify-between items-center">
-        <a href="#" className="text-3xl font-extrabold text-gray-900 tracking-tight">
-          Adam<span className="text-blue-600">Barczewski</span>.
+        <a href="#" className="nav-logo">
+          Adam<span className="nav-logo-span">Barczewski</span>.
         </a>
         <div className="hidden md:flex space-x-8 items-center">
           <NavLink href="#omnie">O Mnie</NavLink>
@@ -88,11 +92,12 @@ export const Navbar: React.FC = () => {
       </div>
       <div
         id="mobile-menu"
-        className={`md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'} bg-white shadow-xl absolute w-full z-40`}
+        className={`md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'} absolute w-full z-40`}
+        style={{ backgroundColor: 'rgba(251, 250, 248, 0.95)', backdropFilter: 'blur(8px)', borderTop: '1px solid #e0dcd5', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}
       >
-        <NavLink href="#omnie" onClick={closeMobileMenu} className="block py-3 px-6 hover:bg-gray-50 font-medium border-b border-gray-100 w-full text-left !pb-3">O Mnie</NavLink>
-        <NavLink href="#uslugi" onClick={closeMobileMenu} className="block py-3 px-6 hover:bg-gray-50 font-medium border-b border-gray-100 w-full text-left !pb-3">Usługi</NavLink>
-        <NavLink href="#dlaczego-ja" onClick={closeMobileMenu} className="block py-3 px-6 hover:bg-gray-50 font-medium w-full text-left !pb-3">Dlaczego Ja?</NavLink>
+        <NavLink href="#omnie" onClick={closeMobileMenu} className="block py-3 px-6 font-medium w-full text-left nav-link">O Mnie</NavLink>
+        <NavLink href="#uslugi" onClick={closeMobileMenu} className="block py-3 px-6 font-medium w-full text-left nav-link">Usługi</NavLink>
+        <NavLink href="#dlaczego-ja" onClick={closeMobileMenu} className="block py-3 px-6 font-medium w-full text-left nav-link">Dlaczego Ja?</NavLink>
         <div className="p-4">
           <NavLink href="#kontakt" onClick={closeMobileMenu} isButton className="block text-center w-full py-3.5">Rozpocznijmy Współpracę</NavLink>
         </div>

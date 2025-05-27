@@ -48,35 +48,22 @@ const animationVisibleClasses = "group-[.is-visible]:opacity-100 group-[.is-visi
 
 export const Hero: React.FC = () => {
   return (
-    <header className="relative text-white py-28 md:py-48 overflow-hidden">
-      {/* Background image layer - behind everything */}
-      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat -z-10" style={{ backgroundImage: "url('/img/fixed_background_main.jpg')" }}></div>
-      {/* Gradient overlay - on top of background image */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[rgba(59,130,246,0.85)] via-[rgba(30,58,138,0.85)] to-[rgba(17,24,39,0.9)] z-0"></div>
-      <HeroParticles />
-      <div className="container mx-auto px-6 text-center relative z-[2]">
-        <AnimateOnScroll className="group"> {/* Wrapper becomes group, children use group-[.is-visible] */}
-          <h1 className={`text-4xl sm:text-5xl md:text-7xl font-extrabold mb-8 leading-tight tracking-tight drop-shadow-lg ${animationBaseClasses} ${animationVisibleClasses}`}>
-            Adam Barczewski <br className="hidden md:block" /> Marketing Cyfrowy dla Lokalnych Marek
-          </h1>
-        </AnimateOnScroll>
-        <AnimateOnScroll className="group" delay="0.2"> {/* Delay is string e.g. "0.2" */}
-          <p className={`text-lg md:text-xl mb-12 max-w-3xl mx-auto text-gray-200 drop-shadow-sm ${animationBaseClasses} ${animationVisibleClasses}`}>
-            Jako strateg marketingu cyfrowego, pomagam lokalnym markom budować silną obecność online i osiągać spektakularne wyniki, które przekładają się na realny wzrost.
-          </p>
-        </AnimateOnScroll>
-        <AnimateOnScroll className="group" delay="0.4">
-          <div className={`${animationBaseClasses} ${animationVisibleClasses}`}>
-            <a
-              href="https://biznes-wzrost-prezent.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white text-blue-700 font-bold px-12 py-4 rounded-lg text-lg transition-all duration-300 ease-in-out hover:bg-gray-100 hover:translate-y-[-3px] hover:shadow-[0_10px_20px_rgba(37,99,235,0.25)] shadow-2xl"
-            >
-              Zobacz Prezentację
-            </a>
-          </div>
-        </AnimateOnScroll>
+    <header className="hero-section">
+      <div className="container mx-auto px-6">
+        <h1>
+          Adam Barczewski <br className="hidden md:block" /> Marketing Cyfrowy dla Lokalnych Marek
+        </h1>
+        <p>
+          Jako strateg marketingu cyfrowego, pomagam lokalnym markom budować silną obecność online i osiągać spektakularne wyniki, które przekładają się na realny wzrost.
+        </p>
+        <a
+          href="https://biznes-wzrost-prezent.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hero-cta-button"
+        >
+          Zobacz Prezentację
+        </a>
       </div>
     </header>
   );

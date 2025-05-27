@@ -3,43 +3,322 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Adam Barczewski - Marketing Cyfrowy</title>
+  <title>Adam Barczewski - Ekspert Marketingu Cyfrowego</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    html.smooth-scroll {
-      scroll-behavior: smooth;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      background-color: transparent; /* Will be covered by page-wrapper or specific sections */
-      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d1d5db' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      position: relative;
-      z-index: 0;
-    }
-    /* Define keyframes for particle animations */
-    @keyframes floatA {
-      0% { transform: translateY(0px) translateX(0px) scale(1); opacity: 0.7; }
-      50% { transform: translateY(-25px) translateX(5px) scale(1.1); opacity: 1; }
-      100% { transform: translateY(0px) translateX(0px) scale(1); opacity: 0.7; }
-    }
-    @keyframes floatB {
-      0% { transform: translateY(0px) translateX(0px) scale(1); opacity: 0.6; }
-      50% { transform: translateY(-20px) translateX(-8px) scale(1.05); opacity: 0.9; }
-      100% { transform: translateY(0px) translateX(0px) scale(1); opacity: 0.6; }
-    }
-    @keyframes floatC {
-      0% { transform: translateY(0px) translateX(0px) scale(0.95); opacity: 0.8; }
-      50% { transform: translateY(-30px) translateX(10px) scale(1); opacity: 1; }
-      100% { transform: translateY(0px) translateX(0px) scale(0.95); opacity: 0.8; }
-    }
-    .animate-float-A { animation: floatA 10s ease-in-out infinite; }
-    .animate-float-B { animation: floatB 12s ease-in-out infinite; }
-    .animate-float-C { animation: floatC 9s ease-in-out infinite; }
+        body {
+            font-family: 'EB Garamond', serif;
+            background-color: #fbfaf8; /* Kolor "Bone" - główny kolor tła */
+            color: #221c15; /* Ciemny brąz/prawie czarny dla tekstu */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            letter-spacing: 0.01em;
+        }
+        .smooth-scroll { scroll-behavior: smooth; }
+
+        /* Nawigacja */
+        nav {
+            background-color: rgba(251, 250, 248, 0.85); /* Lekko przezroczyste tło "bone" */
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid #e0dcd5; /* Subtelna linia oddzielająca */
+        }
+        .nav-logo {
+            font-size: 1.75rem; /* 28px */
+            font-weight: 700;
+            letter-spacing: 0.03em;
+        }
+        .nav-logo-span {
+            color: #8a7967; /* Stonowany brąz dla akcentu w logo */
+        }
+        .nav-link {
+            font-size: 0.95rem; /* 15.2px */
+            font-weight: 500;
+            color: #4a4137;
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
+            transition: color 0.3s ease, border-color 0.3s ease;
+            letter-spacing: 0.04em;
+        }
+        .nav-link:hover {
+            color: #221c15;
+            border-color: #a99887;
+        }
+        .nav-cta-button {
+            background-color: #3d352e; /* Ciemny brąz przycisku */
+            color: #fbfaf8;
+            padding: 8px 18px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            transition: background-color 0.3s ease;
+        }
+        .nav-cta-button:hover {
+            background-color: #221c15;
+        }
+
+        /* Sekcja Hero */
+        .hero-section {
+            background-color: #f8f6f2; /* Nieco inny odcień "bone" dla subtelnego rozróżnienia */
+            padding-top: 10rem; /* Zwiększony padding */
+            padding-bottom: 10rem;
+            text-align: center;
+        }
+        .hero-section h1 {
+            font-size: 3.5rem; /* 56px */
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.01em; /* Lekko ciaśniejszy kerning dla dużego nagłówka */
+            margin-bottom: 1.5rem;
+        }
+        .hero-section p {
+            font-size: 1.25rem; /* 20px */
+            color: #504a43;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+        .hero-cta-button {
+            background-color: #221c15;
+            color: #fbfaf8;
+            padding: 14px 36px;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .hero-cta-button:hover {
+            background-color: #3d352e;
+            transform: translateY(-2px);
+        }
+
+        /* Ogólne style sekcji */
+        .section-padding {
+            padding-top: 6rem; /* 96px */
+            padding-bottom: 6rem;
+        }
+        .section-title {
+            font-size: 2.75rem; /* 44px */
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            letter-spacing: 0.01em;
+        }
+        .section-subtitle {
+            font-size: 1.15rem; /* 18.4px */
+            color: #60564c;
+            text-align: center;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 4rem; /* 64px */
+            line-height: 1.6;
+        }
+
+        /* Sekcja "O Mnie" */
+        #omnie { background-color: #fbfaf8; }
+        .omnie-image-placeholder {
+            width: 300px; /* Dostosuj rozmiar */
+            height: 380px;
+            background-color: #e9e6e2; /* Placeholder color */
+            border: 1px solid #dcdcdc;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a9a9a9;
+        }
+        .omnie-text h3 {
+            font-size: 2rem; /* 32px */
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        .omnie-text p {
+            font-size: 1.05rem; /* 16.8px */
+            line-height: 1.7;
+            color: #3d352e;
+            margin-bottom: 1rem;
+        }
+
+        /* Sekcja "Usługi" */
+        #uslugi { background-color: #f8f6f2; }
+        .service-card-classic {
+            background-color: #fbfaf8;
+            border: 1px solid #e0dcd5;
+            border-radius: 6px;
+            padding: 2.5rem 2rem; /* 40px 32px */
+            text-align: center;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        .service-card-classic:hover {
+            box-shadow: 0 12px 24px -8px rgba(0,0,0,0.08);
+            transform: translateY(-5px);
+        }
+        .service-icon-placeholder {
+            width: 50px;
+            height: 50px;
+            background-color: #e9e6e2;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem auto;
+            display: flex; align-items: center; justify-content: center; color: #a9a9a9;
+            font-size: 0.8rem;
+        }
+        .service-card-classic h3 {
+            font-size: 1.5rem; /* 24px */
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .service-card-classic p {
+            font-size: 0.95rem; /* 15.2px */
+            color: #504a43;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        .service-card-classic a {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #3d352e;
+            letter-spacing: 0.05em;
+            text-decoration: underline;
+            text-decoration-color: #a99887;
+            text-underline-offset: 4px;
+            transition: color 0.3s ease, text-decoration-color 0.3s ease;
+        }
+        .service-card-classic a:hover {
+            color: #221c15;
+            text-decoration-color: #221c15;
+        }
+
+        /* Sekcja "Dlaczego Ja?" */
+        #dlaczego-ja { background-color: #fbfaf8; }
+        .benefit-item {
+            background-color: #f8f6f2;
+            border: 1px solid #e0dcd5;
+            padding: 2rem;
+            border-radius: 6px;
+            display: flex;
+            align-items: flex-start; /* Ikona i tekst na górze */
+        }
+        .benefit-icon-placeholder {
+            width: 36px; /* Mniejsze ikony */
+            height: 36px;
+            background-color: #e9e6e2;
+            border-radius: 4px;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center; color: #a9a9a9;
+            font-size: 0.7rem;
+        }
+        .benefit-item h4 {
+            font-size: 1.25rem; /* 20px */
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .benefit-item p {
+            font-size: 0.95rem;
+            color: #504a43;
+            line-height: 1.6;
+        }
+
+        /* Sekcja "Kontakt" */
+        #kontakt { background-color: #f8f6f2; }
+        .contact-form input, .contact-form textarea {
+            font-family: 'EB Garamond', serif;
+            background-color: #fbfaf8;
+            border: 1px solid #dcdcdc;
+            border-radius: 4px;
+            padding: 12px 16px;
+            font-size: 1rem;
+            color: #221c15;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: #a99887;
+            box-shadow: 0 0 0 2px rgba(169, 152, 135, 0.2);
+            outline: none;
+        }
+        .contact-form label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #3d352e;
+            display: block;
+        }
+        .contact-submit-button {
+            background-color: #3d352e;
+            color: #fbfaf8;
+            padding: 12px 32px;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .contact-submit-button:hover {
+            background-color: #221c15;
+            transform: translateY(-2px);
+        }
+        .contact-alt-email {
+            font-size: 0.95rem;
+            color: #504a43;
+        }
+        .contact-alt-email a {
+            color: #3d352e;
+            font-weight: 600;
+            text-decoration: underline;
+            text-decoration-color: #a99887;
+            text-underline-offset: 3px;
+        }
+        .contact-alt-email a:hover {
+            color: #221c15;
+            text-decoration-color: #221c15;
+        }
+
+        /* Stopka */
+        footer {
+            background-color: #e9e6e2; /* Kolor tła stopki */
+            border-top: 1px solid #dcdcdc;
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+            text-align: center;
+        }
+        .footer-logo {
+            font-size: 2rem; /* 32px */
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            margin-bottom: 1.5rem;
+        }
+        .footer-logo-span { color: #8a7967; }
+        .footer-nav-link {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #504a43;
+            transition: color 0.3s ease;
+            letter-spacing: 0.04em;
+        }
+        .footer-nav-link:hover { color: #221c15; }
+        .footer-social-link svg {
+            width: 20px; height: 20px;
+            color: #60564c;
+            transition: color 0.3s ease;
+        }
+        .footer-social-link:hover svg { color: #221c15; }
+        .footer-copyright {
+            font-size: 0.85rem;
+            color: #70665c;
+            margin-top: 2rem;
+        }
+
+        /* Usunięcie animacji "animate-on-scroll" dla statycznego wyglądu */
+        .animate-on-scroll { opacity: 1; transform: translateY(0); }
   </style>
 <script type="importmap">
 {

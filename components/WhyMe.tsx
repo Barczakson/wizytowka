@@ -1,19 +1,17 @@
 
 import React from 'react';
-import { AnimateOnScroll } from './AnimateOnScroll';
-import { SectionTitle } from './SectionTitle'; 
-import { 
-  HiAdjustmentsHorizontal, 
-  HiOutlineLightBulb, 
-  HiOutlinePresentationChartLine, 
-  HiOutlineUserGroup 
+import {
+  HiAdjustmentsHorizontal,
+  HiOutlineLightBulb,
+  HiOutlinePresentationChartLine,
+  HiOutlineUserGroup
 } from 'react-icons/hi2';
 
 interface WhyMeItemProps {
   icon: React.ElementType; // Changed to ElementType for React components
   title: string;
   description: string;
-  animationDelay?: string; 
+  animationDelay?: string;
 }
 
 // Standard animation classes for elements animated on scroll
@@ -65,20 +63,22 @@ const whyMeData = [
 
 export const WhyMe: React.FC = () => {
   return (
-    <section id="dlaczego-ja" className="py-20 md:py-32 bg-white">
+    <section id="dlaczego-ja" className="section-padding">
       <div className="container mx-auto px-6">
-        <AnimateOnScroll className="group"> 
-          <SectionTitle title="Co Wyróżnia Moją Ofertę?" subtitle="Partnerstwo oparte na zaufaniu, doświadczeniu i realnych efektach." />
-        </AnimateOnScroll>
+        <h2 className="section-title">Co Wyróżnia Moją Ofertę?</h2>
+        <p className="section-subtitle">Partnerstwo oparte na zaufaniu, doświadczeniu i realnych efektach.</p>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12">
           {whyMeData.map((item, index) => (
-            <WhyMeItem
-              key={index}
-              icon={item.icon}
-              title={item.title}
-              description={item.description}
-              animationDelay={item.animationDelay}
-            />
+            <div key={index} className="benefit-item">
+              <div className="benefit-icon-placeholder">
+                Ikona
+              </div>
+              <div>
+                <h4>{item.title}</h4>
+                <p>{item.description}</p>
+              </div>
+            </div>
           ))}
         </div>
       </div>

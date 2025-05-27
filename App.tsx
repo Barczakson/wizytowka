@@ -20,18 +20,15 @@ const App: React.FC = () => {
 
   return (
     <>
-      <div className="fixed inset-0 w-full h-full bg-cover bg-center bg-fixed -z-20 brightness-[0.8] contrast-[1.1]" style={{ backgroundImage: "url('img/fixed_background_main.jpg')" }}></div>
-      <div className="relative z-10 bg-[#f7f8fc] text-gray-800"> {/* page-wrapper equivalent */}
-        <Navbar />
-        <main>
-          <Hero />
-          <About />
-          <Services />
-          <WhyMe />
-          <Contact />
-        </main>
-        <Footer />
-      </div>
+      <Navbar />
+      <main>
+        <Hero />
+        <About />
+        <Services />
+        <WhyMe />
+        <Contact />
+      </main>
+      <Footer />
     </>
   );
 };

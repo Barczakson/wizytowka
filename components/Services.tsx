@@ -1,8 +1,5 @@
 
 import React from 'react';
-import { ServiceCard } from './ServiceCard';
-import { AnimateOnScroll } from './AnimateOnScroll';
-import { SectionTitle } from './SectionTitle'; // Updated import
 
 const servicesData = [
   {
@@ -30,25 +27,21 @@ const servicesData = [
 
 export const Services: React.FC = () => {
   return (
-    <section id="uslugi" className="py-20 md:py-32 bg-gray-50"> {/* Slightly different bg from page-wrapper */}
+    <section id="uslugi" className="section-padding">
       <div className="container mx-auto px-6">
-        {/* SectionTitle component relies on its parent AnimateOnScroll having 'group' class for its internal animations */}
-        <AnimateOnScroll className="group"> 
-          <SectionTitle 
-            title="Kluczowe Usługi dla Twojego Sukcesu" 
-            subtitle="Strategie marketingowe, które napędzają wzrost i maksymalizują ROI." 
-          />
-        </AnimateOnScroll>
+        <h2 className="section-title">Kluczowe Usługi dla Twojego Sukcesu</h2>
+        <p className="section-subtitle">Strategie marketingowe, które napędzają wzrost i maksymalizują ROI.</p>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12">
           {servicesData.map((service, index) => (
-            <ServiceCard 
-              key={index}
-              iconSrc={service.iconSrc}
-              iconAlt={service.iconAlt}
-              title={service.title}
-              description={service.description}
-              animationDelay={service.animationDelay}
-            />
+            <div key={index} className="service-card-classic">
+              <div className="service-icon-placeholder">
+                Ikona
+              </div>
+              <h3>{service.title}</h3>
+              <p>{service.description}</p>
+              <a href="#kontakt">Dowiedz się więcej</a>
+            </div>
           ))}
         </div>
       </div>

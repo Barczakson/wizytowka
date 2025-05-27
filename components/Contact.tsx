@@ -1,14 +1,12 @@
 
 import React, { useState } from 'react';
-import { AnimateOnScroll } from './AnimateOnScroll';
-import { SectionTitle } from './SectionTitle'; 
 
 interface FormDataState {
   imie: string;
   nazwisko: string;
   email: string;
   subject: string;
-  message: string; 
+  message: string;
 }
 
 type SubmissionStatus = 'idle' | 'submitting' | 'success' | 'error';
@@ -80,90 +78,78 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section id="kontakt" className="py-20 md:py-32 bg-gradient-to-br from-blue-700 via-indigo-700 to-purple-800 text-white">
+    <section id="kontakt" className="section-padding">
       <div className="container mx-auto px-6">
-        <AnimateOnScroll className="group"> 
-          <SectionTitle 
-            title="Gotowy na Cyfrową Rewolucję?" 
-            subtitle="Porozmawiajmy o tym, jak mogę pomóc Twojej marce zabłysnąć online."
-            textColor="text-white" 
-            underlineColor="bg-white" 
-          />
-        </AnimateOnScroll>
+        <h2 className="section-title">Gotowy na Cyfrową Rewolucję?</h2>
+        <p className="section-subtitle">Porozmawiajmy o tym, jak mogę pomóc Twojej marce zabłysnąć online.</p>
 
-        <AnimateOnScroll className="group" delay="0.2">
-          <div 
-            className={`max-w-3xl mx-auto bg-white/95 backdrop-blur-md p-8 md:p-12 rounded-xl shadow-2xl text-gray-800 ${animationBaseClasses} ${animationVisibleClasses}`}
-            style={{
-              backgroundImage: 'radial-gradient(circle at 10% 10%, rgba(59, 130, 246, 0.07) 0%, transparent 35%), radial-gradient(circle at 90% 80%, rgba(30, 58, 138, 0.07) 0%, transparent 35%)'
-            }}
-          >
+        <div className="max-w-3xl mx-auto p-8 md:p-12 rounded-xl shadow-lg" style={{ backgroundColor: '#fbfaf8', border: '1px solid #e0dcd5' }}>
             <form onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 gap-y-6 gap-x-6 sm:grid-cols-2">
                 <div>
-                  <label htmlFor="imie" className="block text-sm font-semibold text-gray-700 mb-1">Imię</label>
-                  <input 
-                    type="text" 
-                    name="imie" 
-                    id="imie" 
-                    autoComplete="given-name" 
-                    required 
+                  <label htmlFor="imie" className="contact-form">Imię</label>
+                  <input
+                    type="text"
+                    name="imie"
+                    id="imie"
+                    autoComplete="given-name"
+                    required
                     value={formData.imie}
                     onChange={handleChange}
-                    className="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-lg bg-white/80 transition-all duration-300 focus:shadow-lg" 
+                    className="contact-form w-full"
                     disabled={submissionStatus === 'submitting'}
                   />
                 </div>
                 <div>
-                  <label htmlFor="nazwisko" className="block text-sm font-semibold text-gray-700 mb-1">Nazwisko</label>
-                  <input 
-                    type="text" 
-                    name="nazwisko" 
-                    id="nazwisko" 
-                    autoComplete="family-name" 
+                  <label htmlFor="nazwisko" className="contact-form">Nazwisko</label>
+                  <input
+                    type="text"
+                    name="nazwisko"
+                    id="nazwisko"
+                    autoComplete="family-name"
                     value={formData.nazwisko}
                     onChange={handleChange}
-                    className="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-lg bg-white/80 transition-all duration-300 focus:shadow-lg" 
+                    className="contact-form w-full"
                     disabled={submissionStatus === 'submitting'}
                   />
                 </div>
                 <div className="sm:col-span-2">
-                  <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-1">Adres Email</label>
-                  <input 
-                    id="email" 
-                    name="email" 
-                    type="email" 
-                    autoComplete="email" 
-                    required 
+                  <label htmlFor="email" className="contact-form">Adres Email</label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    required
                     value={formData.email}
                     onChange={handleChange}
-                    className="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-lg bg-white/80 transition-all duration-300 focus:shadow-lg" 
+                    className="contact-form w-full"
                     disabled={submissionStatus === 'submitting'}
                   />
                 </div>
                 <div className="sm:col-span-2">
-                  <label htmlFor="temat" className="block text-sm font-semibold text-gray-700 mb-1">Temat Wiadomości</label>
-                  <input 
-                    id="temat" 
-                    name="subject" 
-                    type="text" 
-                    required 
+                  <label htmlFor="temat" className="contact-form">Temat Wiadomości</label>
+                  <input
+                    id="temat"
+                    name="subject"
+                    type="text"
+                    required
                     value={formData.subject}
                     onChange={handleChange}
-                    className="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-lg bg-white/80 transition-all duration-300 focus:shadow-lg" 
+                    className="contact-form w-full"
                     disabled={submissionStatus === 'submitting'}
                   />
                 </div>
                 <div className="sm:col-span-2">
-                  <label htmlFor="wiadomosc" className="block text-sm font-semibold text-gray-700 mb-1">Twoja Wiadomość</label>
-                  <textarea 
-                    id="wiadomosc" 
-                    name="message" 
-                    rows={5} 
-                    required 
-                    value={formData.message} 
+                  <label htmlFor="wiadomosc" className="contact-form">Twoja Wiadomość</label>
+                  <textarea
+                    id="wiadomosc"
+                    name="message"
+                    rows={5}
+                    required
+                    value={formData.message}
                     onChange={handleChange}
-                    className="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border border-gray-300 rounded-lg bg-white/80 transition-all duration-300 focus:shadow-lg"
+                    className="contact-form w-full"
                     disabled={submissionStatus === 'submitting'}
                   ></textarea>
                 </div>
@@ -176,26 +162,25 @@ export const Contact: React.FC = () => {
               )}
 
               <div className="mt-10 text-center">
-                <button 
-                  type="submit" 
-                  className="w-full md:w-auto inline-flex justify-center py-3.5 px-16 border border-transparent shadow-lg text-lg font-semibold rounded-lg text-white bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-300 ease-in-out hover:translate-y-[-3px] hover:shadow-[0_10px_20px_rgba(37,99,235,0.25)] disabled:opacity-70 disabled:cursor-not-allowed"
+                <button
+                  type="submit"
+                  className="contact-submit-button w-full md:w-auto inline-flex justify-center disabled:opacity-70 disabled:cursor-not-allowed"
                   disabled={submissionStatus === 'submitting'}
                 >
                   {submissionStatus === 'submitting' ? 'Wysyłanie...' : 'Wyślij Zapytanie'}
                 </button>
               </div>
             </form>
-            <div className="text-center mt-12 text-gray-600">
+            <div className="text-center mt-12 contact-alt-email">
                 <p className="mb-2">Preferujesz inną formę kontaktu?</p>
                 <p className="mb-2">
-                    Napisz na: <a href="mailto:adambarczewski00@gmail.com" className="text-indigo-700 font-semibold hover:underline">adambarczewski00@gmail.com</a>
+                    Napisz na: <a href="mailto:adambarczewski00@gmail.com">adambarczewski00@gmail.com</a>
                 </p>
                 <p>
-                    Lub zadzwoń: <a href="tel:+48793030878" className="text-indigo-700 font-semibold hover:underline">+48 793 030 878</a>
+                    Lub zadzwoń: <a href="tel:+48793030878">+48 793 030 878</a>
                 </p>
             </div>
           </div>
-        </AnimateOnScroll>
       </div>
     </section>
   );
